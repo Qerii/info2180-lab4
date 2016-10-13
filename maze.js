@@ -16,7 +16,7 @@ function outOfBound(){
 
 
 //SECTION#2-------------------------------------------------------------
-window.onload = function outBound()
+function outBound()
 {
 	var allBoundary = document.querySelectorAll(".boundary");
 	for( var i = 0; i<allBoundary.length; i++){
@@ -32,6 +32,21 @@ function error () {
 }
 
 
+//SECTION#3-------------------------------------------------------------
+
+window.onload = function completeMaze(){
+	var endEl = document.getElementById("end");
+	endEl.addEventListener("mouseover", function(){
+		alert("you won!!");
+		});
+	var allBoundary = document.querySelectorAll(".boundary");
+	for( var i = 0; i<allBoundary.length; i++){
+		allBoundary[i].addEventListener("mouseover", error);
+	}
+}
+
+
+//SECTION#4-------------------------------------------------------------
 
 
 
