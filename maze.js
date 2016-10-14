@@ -1,22 +1,21 @@
-// JavaScript Document
-
+// JavaScript Doc
+window.onload = function (){
 
 //SECTION#1-------------------------------------------------------------
-function leftDiv()
+topLeftDiv = function()
 {
-	
 	var myEl = document.getElementById("boundary1");
 	myEl.addEventListener("mouseover", outOfBound);
 }
 
-function outOfBound(){
+outOfBound = function(){
 	var myEl = document.getElementById("boundary1");
 	myEl.setAttribute("class", "boundary youlose");
 }
 
 
 //SECTION#2-------------------------------------------------------------
-function outBound()
+var outBound = function()
 {
 	var allBoundary = document.querySelectorAll(".boundary");
 	for( var i = 0; i<allBoundary.length; i++){
@@ -24,30 +23,64 @@ function outBound()
 	}
 		
 }
-function error () {
+var error = function() {
 	var allBoundary = document.querySelectorAll(".boundary");
 	for (var x = 0; x<allBoundary.length; x++){
 		allBoundary[x].setAttribute("class", "boundary youlose");
+		lost = true;
 	}
 }
 
 
 //SECTION#3-------------------------------------------------------------
-
-window.onload = function completeMaze(){
-	var endEl = document.getElementById("end");
-	endEl.addEventListener("mouseover", function(){
+var endFunc = function(){
+	if(lost){
+		alert("you lost!!");
+	}else{
 		alert("you won!!");
-		});
+		}
+ }
+ 
+var lost = false;
+var completeMaze = function(){
+	var start = document.getElementById("start");
+	start.addEventListener("click", startFunc);
+	var end = document.getElementById("end");
+	end.addEventListener("mouseover", endFunc);
 	var allBoundary = document.querySelectorAll(".boundary");
+	
 	for( var i = 0; i<allBoundary.length; i++){
 		allBoundary[i].addEventListener("mouseover", error);
+		
 	}
 }
+	
 
 
 //SECTION#4-------------------------------------------------------------
+startFunc = function(){
+	lost = false;
+	var allBoundary = document.querySelectorAll(".boundary");
+	for( var i = 0; i<allBoundary.length; i++){
+		//alert("boom");
+		allBoundary[i].setAttribute("class", "boundary");
+		
+		}
+}
 
+//Exercise#5-------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+	completeMaze();
+}
 
 
 
