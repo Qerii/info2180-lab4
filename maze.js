@@ -34,10 +34,13 @@ var error = function() {
 
 //SECTION#3-------------------------------------------------------------
 var endFunc = function(){
+	//var status = getElementById("status");
 	if(lost){
-		alert("you lost!!");
+		document.getElementById("status").innerHTML = "you lose!!"//exercise #5: On-page status update 
+		//alert("you lost!!");
 	}else{
-		alert("you won!!");
+		//alert("you won!!");
+		document.getElementById("status").innerHTML = "you won!!" //exercise #5: On-page status update 
 		}
  }
  
@@ -67,14 +70,6 @@ startFunc = function(){
 		
 		}
 }
-
-//Exercise#5-------------------------------------------------------------
-
-
-
-
-
-
 
 
 
