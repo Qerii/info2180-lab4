@@ -14,7 +14,7 @@ outOfBound = function(){
 }
 
 
-//SECTION#2-------------------------------------------------------------
+//Exercise#2-------------------------------------------------------------
 var outBound = function()
 {
 	var allBoundary = document.querySelectorAll(".boundary");
@@ -48,6 +48,7 @@ var lost = false;
 var completeMaze = function(){
 	var start = document.getElementById("start");
 	start.addEventListener("click", startFunc);
+	
 	var end = document.getElementById("end");
 	end.addEventListener("mouseover", endFunc);
 	var allBoundary = document.querySelectorAll(".boundary");
@@ -56,6 +57,7 @@ var completeMaze = function(){
 		allBoundary[i].addEventListener("mouseover", error);
 		
 	}
+	noCheating();
 }
 	
 
@@ -65,14 +67,20 @@ startFunc = function(){
 	lost = false;
 	var allBoundary = document.querySelectorAll(".boundary");
 	for( var i = 0; i<allBoundary.length; i++){
-		//alert("boom");
 		allBoundary[i].setAttribute("class", "boundary");
 		
 		}
 }
 
-
-
+//Exercise#6-------------------------------------------------------------
+noCheating = function(){
+	var maze = document.getElementById("maze");
+	var noCheat = document.addEventListener("mouseover", function(){
+		if(event.clientX < maze.offsetLeft){
+			error();
+		}
+		});
+}
 
 	completeMaze();
 }
